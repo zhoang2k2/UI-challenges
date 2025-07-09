@@ -1,0 +1,4 @@
+export enum BUTTON_VARIANT {
+  FILLED = "FILLED",
+  BORDERED = "BORDERED",
+}

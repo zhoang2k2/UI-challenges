@@ -1,103 +1,255 @@
-import Image from "next/image";
+import { Button } from "@/components/Button";
+import { Container } from "@/components/Container";
+import { ImageWrapper } from "@/components/ImageWrapper";
+import { MentorshipItem } from "@/components/MentorshipItem";
+import { SectionTextContent } from "@/components/SectionTextContent";
+import { Typography } from "@/components/Typography";
+import { BUTTON_VARIANT } from "@/constants/buttonVariants";
+import { TYPOGRAPHY_TAG_VARIANT } from "@/constants/typographyVariants";
+import GridLayout from "@/layouts/GridLayout";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <div className="homepage flex flex-col gap-24">
+      <section className="section section-hero">
+        <Container>
+          <GridLayout>
+            <SectionTextContent className="col-span-3 w-full max-w-[92%] mt-16">
+              <Typography content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." />
+            </SectionTextContent>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
+            <div className="col-span-5 w-full h-fit max-w-[80%] mx-auto relative">
+              <ImageWrapper src="images/image_1.jpg" alt="image_1" />
+
+              <Typography
+                className="absolute left-0 bottom-0 font-bold -translate-x-[70%] translate-y-[40%] !text-[120px] leading-28"
+                content={
+                  <p>
+                    Interi<span className="text-white">or</span>
+                    <br />
+                    Design
+                  </p>
+                }
+              />
+            </div>
+
+            <SectionTextContent className="col-span-4 max-w-[88%] ml-auto">
+              <Typography
+                className="!text-xl uppercase tracking-wider"
+                content="Our Recent Work"
+                variant={TYPOGRAPHY_TAG_VARIANT.SPAN}
+              />
+
+              <Typography
+                content="We Will Make These Unique Tastes of Yours a design reality!"
+                variant={TYPOGRAPHY_TAG_VARIANT.HEAD_3}
+              />
+
+              <Button
+                className="w-fit uppercase"
+                label="View Project"
+                variant={BUTTON_VARIANT.BORDERED}
+              />
+
+              <div className="w-full mt-8">
+                <ImageWrapper src="images/image_2.jpg" alt="image_2" />
+              </div>
+            </SectionTextContent>
+          </GridLayout>
+        </Container>
+      </section>
+
+      <section className="section section-introduction">
+        <Container>
+          <GridLayout>
+            <div className="col-span-4">
+              <ImageWrapper src="images/image_3.jpg" alt="image_3" />
+            </div>
+
+            <SectionTextContent className="col-span-8 ml-auto">
+              <Typography
+                className="!text-xl uppercase tracking-wider"
+                content="WHO WE ARE"
+                variant={TYPOGRAPHY_TAG_VARIANT.SPAN}
+              />
+
+              <Typography
+                className="max-w-[50%]"
+                content="Exterior & Interior"
+                variant={TYPOGRAPHY_TAG_VARIANT.HEAD_2}
+              />
+
+              <Typography
+                className="max-w-[50%]"
+                content="Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+              />
+
+              <Button className="w-fit uppercase" label="read more" />
+            </SectionTextContent>
+          </GridLayout>
+        </Container>
+      </section>
+
+      <section className="section section-detail">
+        <Container>
+          <GridLayout>
+            <SectionTextContent className="col-span-6">
+              <Typography
+                content="Interior Design Program."
+                variant={TYPOGRAPHY_TAG_VARIANT.HEAD_2}
+              />
+
+              <div className="flex gap-8 items-center">
+                <Typography content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." />
+                <Typography
+                  className="!text-6xl"
+                  content="/01"
+                  variant={TYPOGRAPHY_TAG_VARIANT.SPAN}
+                />
+              </div>
+
+              <div className="flex gap-8 items-center">
+                <Typography
+                  className="!text-6xl"
+                  content="02/"
+                  variant={TYPOGRAPHY_TAG_VARIANT.SPAN}
+                />
+                <Typography content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." />
+              </div>
+            </SectionTextContent>
+
+            <div className="col-span-6">
+              <ImageWrapper src="images/image_4.jpg" alt="image_4" />
+            </div>
+          </GridLayout>
+        </Container>
+      </section>
+
+      <section className="section section-unique">
+        <Container>
+          <GridLayout>
+            <div className="col-span-6 relative w-full h-[550px]">
+              <div className="w-[70%] absolute top-0 left-0">
+                <ImageWrapper src="images/image_5.jpg" alt="image_5" />
+              </div>
+
+              <div className="w-[70%] absolute bottom-0 right-0 border-2 border-solid border-white">
+                <ImageWrapper src="images/image_6.jpg" alt="image_6" />
+              </div>
+            </div>
+
+            <SectionTextContent className="col-span-6 ml-auto">
+              <Typography
+                content="Design Unique And Functional Spaces"
+                variant={TYPOGRAPHY_TAG_VARIANT.HEAD_2}
+              />
+
+              <Typography content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." />
+
+              <Typography content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." />
+            </SectionTextContent>
+          </GridLayout>
+        </Container>
+      </section>
+
+      <section className="section section-mentorship">
+        <Container className="flex flex-col gap-16">
+          <Typography
+            className="text-center"
+            content="Our Mentorship Program"
+            variant={TYPOGRAPHY_TAG_VARIANT.HEAD_2}
           />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+
+          <GridLayout>
+            <SectionTextContent className="col-span-4 ml-auto">
+              <Typography
+                className="!text-xl uppercase tracking-wider"
+                content="Career Course"
+                variant={TYPOGRAPHY_TAG_VARIANT.SPAN}
+              />
+
+              <Typography
+                content="Certified Interior Decorator"
+                variant={TYPOGRAPHY_TAG_VARIANT.HEAD_3}
+              />
+
+              <Typography content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." />
+
+              <Typography content="Rs. 25,000/- Introduction Price!" />
+
+              <Button
+                className="w-fit uppercase"
+                label="Book Now"
+                variant={BUTTON_VARIANT.BORDERED}
+              />
+            </SectionTextContent>
+
+            <div className="mentorship-image col-span-4 w-full max-w-[96%] m-auto">
+              <ImageWrapper src="images/image_7.jpg" alt="image_7" />
+            </div>
+
+            <SectionTextContent className="col-span-4 ml-auto">
+              <ul className="mentorship-list  flex flex-col gap-12">
+                <MentorshipItem
+                  title="Certification"
+                  content="Certified Interior Decorator "
+                />
+                <MentorshipItem
+                  title="Course PaCe"
+                  content="Study at flexible Pace"
+                />
+                <MentorshipItem title="Duration" content="4 Month" />
+                <MentorshipItem title="Course form" content="100% Online" />
+              </ul>
+            </SectionTextContent>
+          </GridLayout>
+        </Container>
+      </section>
+
+      <section className="section section-feature">
+        <Container>
+          <GridLayout>
+            <div className="col-span-4 w-full max-w-[92%]">
+              <ImageWrapper src="images/image_8.jpg" alt="image_8" />
+            </div>
+
+            <SectionTextContent className="col-span-4">
+              <Typography
+                content="Furniture Should Be Comfortable."
+                variant={TYPOGRAPHY_TAG_VARIANT.HEAD_2}
+              />
+
+              <Typography content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam," />
+            </SectionTextContent>
+
+            <div className="col-span-4 w-full max-w-[92%] ml-auto flex flex-col gap-8">
+              <ImageWrapper src="images/image_9.jpg" alt="image_9" />
+
+              <Typography content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna." />
+            </div>
+          </GridLayout>
+        </Container>
+      </section>
+
+      <section className="section section-contact">
+        <Container>
+          <GridLayout className="items-center">
+            <SectionTextContent className="col-span-6">
+              <Typography content="Let’s Work together And We’ll help you By Our Best Interior Design" />
+
+              <Button
+                className="w-fit uppercase"
+                label="Let’s Chat"
+                variant={BUTTON_VARIANT.BORDERED}
+              />
+            </SectionTextContent>
+
+            <div className="col-span-6 w-full max-w-[92%] ml-auto">
+              <ImageWrapper src="images/image_10.jpg" alt="image_10" />
+            </div>
+          </GridLayout>
+        </Container>
+      </section>
     </div>
   );
 }
